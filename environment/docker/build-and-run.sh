@@ -23,5 +23,5 @@ docker ps
 docker port ipython 8888
 
 ### "ipython-stop"
-docker stop ipython
-docker rm ipython
+# docker stop ipython
+# docker rm ipython
