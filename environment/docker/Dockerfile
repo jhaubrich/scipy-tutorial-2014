@@ -62,6 +62,7 @@ RUN apt-get install -y mplayer
 RUN useradd -m repro
 RUN adduser repro sudo
 
+
 ### "activate-user"
 ENV HOME /home/repro
 USER repro

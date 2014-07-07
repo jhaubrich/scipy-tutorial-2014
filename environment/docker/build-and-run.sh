@@ -5,16 +5,18 @@ set -e
 docker build -t reproducible/base .
 
 ### "build-dexy"
-docker build -t reproducible/dexy - < ./Dockerfile-dexy
+docker build -t reproducible/dexy dexy
 
 ### "build-ipython"
-docker build -t reproducible/ipython - < ./Dockerfile-ipython
+docker build -t reproducible/ipython ipython
 
 ### "run-dexy"
-docker run --rm -v $PWD/../../notebooks/dexy:/home/repro reproducible/dexy
+# docker run --rm -v $PWD/../../notebooks/dexy:/home/repro reproducible/dexy
+docker run --rm reproducible/dexy
 
 ### "start-ipython"
-docker run -d -P -v $PWD/../../notebooks:/home/repro --name ipython reproducible/ipython
+# docker run -d -P -v $PWD/../../notebooks:/home/repro --name ipython reproducible/ipython
+docker run -d -P --name ipython reproducible/ipython
 
 ### "ipython-ps"
 docker ps
